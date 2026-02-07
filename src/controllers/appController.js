@@ -2,8 +2,10 @@ exports.health = (req, res) =>{
     res.json({status: "ok"});
 }
 
-exports.hello = (req,res) =>{
-    res.send("Hello backend");
+exports.hello = async (req,res) =>{
+    await new Promise((resolve) => setTimeout(resolve,500));
+    throw new Error("Something failed!");
+   // res.send("Hello backend");
 }
 
 exports.greatUser = (req,res) =>{
